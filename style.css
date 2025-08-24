@@ -1,0 +1,439 @@
+:root {
+  --primary-color: #add8e6;
+  --secondary-color: #7ec8e3;
+  --dark-bg: #121212;
+  --darker-bg: #0a0a0a;
+  --text-color: #f0f8ff;
+  --accent-color: #5e84a1;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: var(--dark-bg);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--secondary-color);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header Styles */
+header {
+  background-color: var(--darker-bg);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+header h1 {
+  font-size: 1.8rem;
+  color: var(--primary-color);
+}
+
+nav {
+  display: flex;
+  gap: 25px;
+}
+
+nav a {
+  font-weight: 500;
+  position: relative;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary-color);
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Hero Section */
+#hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://f4.bcbits.com/img/a2406469411_10.jpg') center/cover no-repeat;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 18px 50px;
+  background-color: var(--primary-color);
+  color: var(--dark-bg);
+  border-radius: 30px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+  font-size: 1.3rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.cta-button:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Section Styles */
+section {
+  padding: 80px 0;
+}
+
+h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: var(--primary-color);
+  position: relative;
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: var(--primary-color);
+}
+
+/* About Section */
+.about-content {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.极速赛车开奖直播历史记录about-text {
+  max-width: 700px;
+}
+
+.about-text p {
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+  line-height: 1.8;
+}
+
+/* Music Section */
+.music-players {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.music-embed h3 {
+  margin-bottom: 15px;
+  color: var(--primary-color);
+  text-align: center;
+}
+
+/* Video Section */
+.video-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.video-container iframe {
+  width: 100%;
+  max-width: 800px;
+  height: 450px;
+  border-radius: 10px;
+}
+
+/* Shop Section */
+#shop {
+  background-color: var(--darker-bg);
+  text-align: center;
+}
+
+.shop-intro {
+  margin-bottom: 30px;
+  font-size: 1.1rem;
+}
+
+.bandcamp-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
+
+.album-cover {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 10px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.album-cover:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+}
+
+.bandcamp-embed {
+  max-width: 700px;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 10极速赛车开奖直播历史记录px;
+  overflow: hidden;
+}
+
+.bandcamp-link {
+  margin-top: 15px;
+}
+
+/* Contact Section */
+.contact-content {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.contact-info {
+  flex: 1;
+  min-width: 300px;
+}
+
+.contact-info p {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.contact-info i {
+  margin-right: 10px;
+  width: 20px;
+  color: var(--primary-color);
+  text-align: center;
+}
+
+/* Contact Section - X Logo */
+.x-contact {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.x-logo {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  object-fit: contain;
+}
+
+.contact-form {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px 15px;
+  border: 1px solid #333;
+  border-radius: 5px;
+  background-color: var(--darker-bg);
+  color: var(--text-color);
+  font-family: inherit;
+}
+
+.contact-form button {
+  padding: 12px;
+  background-color: var(--primary-color);
+  color: var(--dark-bg);
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: var(--secondary-color);
+}
+
+/* Footer */
+footer {
+  background-color: var(--darker-bg);
+  padding: 40px 0;
+  text-align: center;
+}
+
+footer .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.social-links {
+  display: flex;
+  gap: 20px;
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  transition: transform 0.3s ease;
+}
+
+.social-links a:hover {
+  transform: translateY(-5px);
+}
+
+.social-links a i {
+  font-size: 1.5rem;
+}
+
+/* Footer Social Links - X Logo */
+.x-social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.x-social .x-logo {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+  
+  nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  .contact-content {
+    flex-direction: column;
+  }
+  
+  .menu-toggle {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+  
+  nav {
+    display: none;
+  }
+  
+  nav.active {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .album-cover {
+    max-width: 250px;
+  }
+  
+  #hero {
+    height: 70vh;
+  }
+  
+  .cta-button {
+    padding: 15px 35px;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  section {
+    padding: 60px 0;
+  }
+  
+  .cta-button {
+    padding: 12px 30px;
+    font-size: 1rem;
+  }
+  
+  .album-cover {
+    max-width: 220px;
+  }
+  
+  .social-links {
+    gap: 15px;
+  }
+  
+  .social-links a {
+    width: 35px;
+    height: 35px;
+  }
+  
+  h2 {
+    font-size: 2rem;
+  }
+  
+  #hero {
+    height: 60vh;
+  }
+}
