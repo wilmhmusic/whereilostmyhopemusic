@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>where i lost my hope</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary-color: #add8e6;
+      --secondary-color: #7ec8e3;
+      --dark-bg: #121212;
+      --darker-bg: #0a0a0a;
+      --text-color: #f0f8ff;
+      --accent-color: #5e84a1;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: var(--dark-bg);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--primary-color);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: var(--secondary-color);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header Styles */
+    header {
+      background-color: var(--darker-bg);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      color: var(--primary-color);
+    }
+
+    nav {
+      display: flex;
+      gap: 25px;
+    }
+
+    nav a {
+      font-weight: 500;
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--primary-color);
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--primary-color);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* Hero Section */
+    #hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://f4.bcbits.com/img/a2008124905_10.jpg') center/cover no-repeat;
+      height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 18px 50px;
+      background-color: var(--primary-color);
+      color: var(--dark-bg);
+      border-radius: 30px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      transition: all 0.3s ease;
+      font-size: 1.3rem;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    .cta-button:hover {
+      background-color: var(--secondary-color);
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Section Styles */
+    section {
+      padding: 80px 0;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      color: var(--primary-color);
+      position: relative;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background-color: var(--primary-color);
+    }
+
+    /* About Section */
+    .about-content {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .about-text {
+      max-width: 800px;
+    }
+
+    .about-text p {
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+      line-height: 1.8;
+      text-align: left;
+      color: #e0f7ff;
+    }
+
+    /* Music Section */
+    .music-players {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .music-embed h3 {
+      margin-bottom: 15px;
+      color: var(--primary-color);
+      text-align: center;
+    }
+
+    /* Video Section */
+    .video-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 40px;
+    }
+
+    .video-container iframe {
+      width: 100%;
+      max-width: 800px;
+      height: 450px;
+      border-radius: 10px;
+    }
+
+    /* Shop Section */
+    #shop {
+      background-color: var(--darker-bg);
+      text-align: center;
+    }
+
+    .shop-intro {
+      margin-bottom: 30px;
+      font-size: 1.1rem;
+    }
+
+    .bandcamp-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .album-cover {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 10px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .album-cover:hover {
+      transform: scale(1.03);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .bandcamp-embed {
+      max-width: 700px;
+      width: 100%;
+      margin: 0 auto;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .bandcamp-link {
+      margin-top: 15px;
+    }
+
+    /* Contact Section */
+    .contact-content {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .contact-info {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .contact-info p {
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+    }
+
+    .contact-info i {
+      margin-right: 10px;
+      width: 20px;
+      color: var(--primary-color);
+      text-align: center;
+    }
+
+    /* Contact Section - X Logo */
+    .x-contact {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .x-logo {
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+      object-fit: contain;
+    }
+
+    .contact-form {
+      flex: 1;
+      min-width: 300px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 12px 15px;
+      border: 1px solid #333;
+      border-radius: 5px;
+      background-color: var(--darker-bg);
+      color: var(--text-color);
+      font-family: inherit;
+    }
+
+    .contact-form button {
+      padding: 12px;
+      background-color: var(--primary-color);
+      color: var(--dark-bg);
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: var(--secondary-color);
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--darker-bg);
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    footer .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      transition: transform 0.3s ease;
+    }
+
+    .social-links a:hover {
+      transform: translateY(-5px);
+    }
+
+    .social-links a i {
+      font-size: 1.5rem;
+    }
+
+    /* Footer Social Links - X Logo */
+    .x-social {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .x-social .x-logo {
+      width: 22px;
+      height: 22px;
+      object-fit: contain;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+      }
+      
+      nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+      }
+      
+      .about-text p {
+        text-align: center;
+        font-size: 1.1rem;
+      }
+      
+      .contact-content {
+        flex-direction: column;
+      }
+      
+      .menu-toggle {
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+      }
+      
+      nav {
+        display: none;
+      }
+      
+      nav.active {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 20px;
+      }
+      
+      .album-cover {
+        max-width: 250px;
+      }
+      
+      #hero {
+        height: 70vh;
+      }
+      
+      .cta-button {
+        padding: 15px 35px;
+        font-size: 1.1rem;
+      }
+      
+      .social-links {
+        gap: 12px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      section {
+        padding: 60px 0;
+      }
+      
+      .cta-button {
+        padding: 12px 30px;
+        font-size: 1rem;
+      }
+      
+      .album-cover {
+        max-width: 220px;
+      }
+      
+      .social-links {
+        gap: 10px;
+      }
+      
+      .social-links a {
+        width: 35px;
+        height: 35px;
+      }
+      
+      h2 {
+        font-size: 2rem;
+      }
+      
+      #hero {
+        height: 60vh;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <h1>where i lost my hope</h1>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#music">Music</a>
+        <a href="#videos">Videos</a>
+        <a href="#shop">Shop</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <section id="hero">
+    <div class="hero-content">
+      <a href="#music" class="cta-button">LISTEN NOW</a>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <h2>About</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <p>"where i lost my hope" is my outlet for ambient soundscapes, created by @mhmakemusic. More than just music, it's a collection of field recordings from the world around me. Each sound tells a story—a moment of solitude, a fragment of memory. This is where I channel stillness and reflection. Press play, close your eyes, and get lost in the atmosphere. I hope you enjoy my music.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="music">
+    <div class="container">
+      <h2>Music</h2>
+      <div class="music-players">
+        <div class="music-embed">
+          <h3>Spotify</h3>
+          <iframe style="border-radius:12px" 
+                  src="https://open.spotify.com/embed/album/7zYg9OTMkMkWWq5tgAesFJ?utm_source=generator" 
+                  width="100%" height="352" frameBorder="0" allowfullscreen="" 
+                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                  loading="lazy"></iframe>
+        </div>
+
+        <div class="music-embed">
+          <h3>Apple Music</h3>
+          <iframe allow="autoplay *; encrypted-media *; fullscreen *"
+                  frameborder="0" height="350" style="width:100%;max-width:660px;overflow:hidden;background:transparent;"
+                  sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation"
+                  src="https://embed.music.apple.com/vn/album/where-would-i-go/1841791572">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="videos">
+    <div class="container">
+      <h2>Videos</h2>
+      <div class="video-container">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/pD7usE2l-a0"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section id="shop">
+    <div class="container">
+      <h2>Shop</h2>
+      <p class="shop-intro">Purchase my music directly from Bandcamp:</p>
+      <div class="bandcamp-item">
+        <img src="https://f4.bcbits.com/img/a2008124905_10.jpg" alt="Album Cover" class="album-cover">
+        <div class="bandcamp-embed">
+          <iframe style="border: 0; width: 100%; height: 472px;" 
+                  src="https://bandcamp.com/EmbeddedPlayer/track=3923997138/size=large/bgcol=333333/linkcol=0f91ff/tracklist=false/artwork=small/transparent=true/" 
+                  seamless>
+            <a href="https://npmhrec.bandcamp.com/track/where-would-i-go">Where Would I Go by wilmh</a>
+          </iframe>
+        </div>
+        <div class="bandcamp-link">
+          <a href="https://npmhrec.bandcamp.com/track/where-would-i-go" target="_blank" class="cta-button">
+            <i class="fab fa-bandcamp"></i> Purchase on Bandcamp
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h2>Contact</h2>
+      <div class="contact-content">
+        <div class="contact-info">
+          <p>For inquiries about commissions, collaborations, or purchases, please reach out:</p>
+          <p><i class="fas fa-envelope"></i> Email: <a href="mailto:wilmhmusic@gmail.com">wilmhmusic@gmail.com</a></p>
+          <p><i class="fab fa-instagram"></i> Instagram: <a href="https://www.instagram.com/mhmakemusic/" target="_blank">@mhmakemusic</a></p>
+          <p class="x-contact">
+            <img src="https://logos-world.net/wp-content/uploads/2023/08/X-Logo.png" alt="X logo" class="x-logo">
+            X: <a href="https://x.com/wilmhmusic" target="_blank">@wilmhmusic</a>
+          </p>
+        </div>
+        <form class="contact-form">
+          <input type="text" placeholder="Your Name" required>
+          <input type="email" placeholder="Your Email" required>
+          <textarea placeholder="Your Message" rows="5" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 where i lost my hope. All rights reserved.</p>
+      <div class="social-links">
+        <a href="https://open.spotify.com/album/7zYg9OTMkMkWWq5tgAesFJ?si=72zp0PnrQ7aQFxLXayL0TQ" aria-label="Spotify" target="_blank"><i class="fab fa-spotify"></i></a>
+        <a href="https://music.apple.com/vn/album/where-would-i-go/1841791572" aria-label="Apple Music" target="_blank"><i class="fab fa-apple"></i></a>
+        <a href="https://www.youtube.com/@whereilostmyhope" aria-label="YouTube" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.instagram.com/mhmakemusic/" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://x.com/wilmhmusic" aria-label="X" target="_blank" class="x-social">
+          <img src="https://logos-world.net/wp-content/uploads/2023/08/X-Logo.png" alt="X logo" class="x-logo">
+        </a>
+        <a href="https://npmhrec.bandcamp.com" aria-label="Bandcamp" target="_blank"><i class="fab fa-bandcamp"></i></a>
+        <a href="https://www.discogs.com/artist/16604741-where-i-lost-my-hope" aria-label="Discogs" target="_blank"><i class="fas fa-record-vinyl"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('nav');
+
+    if (menuToggle && nav) {
+      menuToggle.addEventListener('click', function() {
+        nav.classList.toggle('active');
+      });
+    }
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          // Close mobile menu if open
+          if (nav && nav.classList.contains('active')) {
+            nav.classList.remove('active');
+          }
+          
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Form submission handling
+    const contactForm = document.querySelector('.contact-form');
+    if (contactForm) {
+      contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // In a real application, you would send the form data to a server
+        // This is just a simulation
+        alert('Thank you for your message! I will get back to you soon.');
+        contactForm.reset();
+      });
+    }
+  </script>
+</body>
+</html>
